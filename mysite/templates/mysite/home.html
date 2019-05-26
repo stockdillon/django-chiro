@@ -1,0 +1,62 @@
+{% extends "mysite/header.html" %}
+
+
+{% block content %}
+{% load staticfiles %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <script type="text/javascript" src="{% static 'material-design/material-components-web.min.js' %}" ></script>
+    <link rel="stylesheet" href="{% static 'material-design/material-components-web.min.css' %}" />
+</head>
+
+<!-- <body> -->
+<div class="wrapper">
+    <center>
+        <img class="responsive-img hoverable"  id="profileImg" src="{% static 'mysite/profile.jpg' %}" style='max-height:200px;' alt="face">
+        <img class="rounded hoverable"  src="{% static 'mysite/happy-family.jpg' %}" style='max-height:200px;' alt="face">
+        <h3>Dillon Stock</h3>
+    </center>
+    
+    <button id="show-blog-posts" class="foo-button mdc-button">Toggle Blog Posts</button>
+    {% for post in posts %}
+        <div class="blog-post {% if not forloop.counter0|divisibleby:2 %}float-right{% endif %}">{{post.content}}</div>
+    {% endfor %}    
+</div>
+
+
+    <script>
+        mdc.ripple.MDCRipple.attachTo(document.querySelector(".foo-button"));
+        $('#show-blog-posts').on('click', function() {
+            //$('.blog-post').fadeToggle(600);
+            $('.blog-post').each(function(i) {
+                $(this).delay(i * 500).fadeToggle(600);
+            });            
+        });
+
+        $('.blog-post').on('click', function(){
+            $(this).fadeToggle(600);
+        })
+
+        $(document).ready(function() {
+            console.log("success!");
+            $.ajax({
+            url: 'api/posts',
+            data: '',
+            success: function(result){
+                console.log(result);
+                result.forEach(function(post){
+                    console.log(post.content);
+                })
+            },
+            dataType: "JSON"
+            });
+        });
+    </script>
+    <!-- <button onclick="transition();">Press</button> -->
+<!-- </body> -->
+
+
+
+{% endblock %}
