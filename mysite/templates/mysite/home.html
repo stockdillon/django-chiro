@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <script type="text/javascript" src="{% static 'material-design/material-components-web.min.js' %}" ></script>
     <link rel="stylesheet" href="{% static 'material-design/material-components-web.min.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'ang/styles.css' %}"></head> {% endcomment %}
 </head>
 
 <!-- <body> -->
@@ -25,6 +26,15 @@
     {% endfor %}    
 </div>
 
+	{% comment %} <app-root><img src="/static/ang/assets/images/loading/load.gif" alt="Loading..." style="position:fixed; top:50%; left:50%; transform: translate(-50%, -50%);"></app-root> {% endcomment %}
+	{% comment %} <app-root><i class="fa fa-lg fa-spinner fa-spin" style="position:fixed; top:50%; left:50%; transform: translate(-50%, -50%);"></i></app-root>
+	<script type="text/javascript" src="{% static 'ang/runtime.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ang/polyfills.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ang/main.js' %}"></script> {% endcomment %}
+	{% comment %} <script type="text/javascript" src="./presentation/dist/presentation/runtime.js"></script>
+	<script type="text/javascript" src="./presentation/dist/presentation/polyfills.js"></script>
+	<script type="text/javascript" src="./presentation/dist/presentation/main.js"></script> {% endcomment %}
+
 
     <script>
         mdc.ripple.MDCRipple.attachTo(document.querySelector(".foo-button"));
@@ -32,25 +42,6 @@
             //$('.blog-post').fadeToggle(600);
             $('.blog-post').each(function(i) {
                 $(this).delay(i * 500).fadeToggle(600);
-            });            
-        });
-
-        $('.blog-post').on('click', function(){
-            $(this).fadeToggle(600);
-        })
-
-        $(document).ready(function() {
-            console.log("success!");
-            $.ajax({
-            url: 'api/posts',
-            data: '',
-            success: function(result){
-                console.log(result);
-                result.forEach(function(post){
-                    console.log(post.content);
-                })
-            },
-            dataType: "JSON"
             });
         });
     </script>

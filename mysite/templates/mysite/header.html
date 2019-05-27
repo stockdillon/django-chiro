@@ -3,7 +3,7 @@
 
 
 <head>
-	<title>Dillon Stock</title>
+	<title>Proactive Chiropractic</title>
 	<meta charset="utf-8" />
 	{% load staticfiles %}
 
@@ -13,7 +13,11 @@
 	<script type="text/javascript" src="{% static '\css\bootstrap\js\bootstrap.js' %}" ></script>
 	<link rel="stylesheet" href="{% static 'css/header.css' %}" />
 	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+	{% comment %} <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/> {% endcomment %}
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+	<link rel="manifest" href="{% static 'img/site.webmanifest' %}">	
 	<link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}" />
 	<link rel="stylesheet" href="{% static 'material-design/material-components-web.min.css' %}" />
 	<script type="text/javascript" src="{% static 'material-design/material-components-web.min.js' %}" ></script>
@@ -64,6 +68,14 @@
 	</header>
 
 	<div class="spacer"></div>
+
+
+	<script type="text/javascript" src="{% static 'ang/runtime.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ang/polyfills.js' %}"></script>
+	<script type="text/javascript" src="{% static 'ang/main.js' %}"></script>	
+
+	<app-root>		
+	</app-root>
 	
 	<script>
 		// When the user scrolls the page, execute stickyHeader 

@@ -18,6 +18,8 @@ from django.urls import path
 from api.views import UserList, PostList
 from django.urls import path, include
 from mysite.views import Index
+from django.views.generic.base import TemplateView
+from django.conf.urls import url
 
 urlpatterns = [
     path('', Index.as_view()),    
@@ -25,4 +27,5 @@ urlpatterns = [
     # path('personal/', include('personal.urls')),
     path('api/users', UserList.as_view()),
     path('api/posts', PostList.as_view()),
+    url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
 ]
