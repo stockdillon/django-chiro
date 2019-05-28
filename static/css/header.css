@@ -34,14 +34,16 @@ body {
     font-weight: 600;
     color: white;
     border-color: white;
-    background-color: inherit;    
+    background-color: inherit !important;
+    border: 0px !important;
+    box-shadow: 0 0 0 0rem !important;
 }
 
 .btn-info:hover, .btn-info:active, .btn-info:not(:disabled):not(.disabled):active {
     font-weight: 600;
-    color: black;
+    /* color: black;
     border-color: white;
-    background-color: white;    
+    background-color: white;     */
 }
 
 .btn-info:active {
@@ -65,15 +67,16 @@ body {
     background-color: white; 
 }
 
-a:hover {
+a:hover, #dropdownMenuButton:hover {
     opacity: 1;
+    color: white;
 }
-a:not(:hover) {
+a:not(:hover), #dropdownMenuButton:not(:hover) {
     opacity: .75;
 }
 
 a:hover, a:not(:hover) {
-    color: inherit;
+    color: inherit !important;
 }
 
 .color-white {
@@ -84,7 +87,30 @@ a:hover, a:not(:hover) {
     margin-left: 0px;
 }
 
+#myHeader.navbar.navbar-expand {
+    position: fixed !important;
+}
 
+/* .btn.btn-info, .btn.btn-info:hover, .btn.btn-info:active, .btn.btn-info:focus,
+.btn.btn-info:focus-visible, .btn.btn-info:focus-within, .btn.btn-info:visited{
+    background-color: inherit;
+    border-color: var(--background-color);
+    border: 0px;
+    box-shadow: 0 0 0 0rem;
+} */
+.dropdown-menu .dropdown-item {
+    font-weight: 600 !important;
+}
+
+#dropdownMenuButton > .btn-info:active {
+    background-color: inherit;
+}
+
+.dropdown * .btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {
+    color: #fff;
+    background-color: inherit !important;
+    border-color: inherit !important;
+}
 /*
 #######################################################################
 */
@@ -108,9 +134,9 @@ p {
 
 header {
     width: 100%;
-    outline-style: ridge;
-    outline-color: seagreen;
-    outline-width: 3px;
+    /* outline-style: ridge; */
+    /* outline-color: seagreen; */
+    /* outline-width: 3px; */
     outline-color: transparent;
 }
 

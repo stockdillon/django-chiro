@@ -1,0 +1,17 @@
+.blog-post-card {
+  max-width: 400px;
+}
+
+.joe-blog-post-header-image {
+  background-image: url('https://media.licdn.com/dms/image/C4E03AQHpjjJtFgSQxQ/profile-displayphoto-shrink_800_800/0?e=1564617600&v=beta&t=cQktx0JS6fdlb4TEuWNtKziODwsWICnoZmBYUtQ2060');
+  background-size: cover;
+}
+
+.mat-button {
+  outline: none;
+  background-color: #00BAFF
+}
+
+.mat-card {
+  /* background-color: #999999 */
+}

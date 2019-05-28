@@ -45,14 +45,13 @@
 		<div class="container color-white" style="margin-left:none !important;">
 
 			<div class="dropdown">
-				<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button class="btn btn-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<i class="fas fa-bars" aria-hidden="true"></i>
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					<a class="dropdown-item" href='/'>Home</a>
 					<a class="dropdown-item" href='/personal/'>Personal</a>
 					<a class="dropdown-item" href='/personal/contact/'>Contact</a>
-					<a class="dropdown-item" href='/object_detection/'>Object Detection</a>
 					<a class="dropdown-item" href="/photo_gallery/">Photo Gallery</a>				  
 				</div>
 			</div>
@@ -68,14 +67,6 @@
 	</header>
 
 	<div class="spacer"></div>
-
-
-	<script type="text/javascript" src="{% static 'ang/runtime.js' %}"></script>
-	<script type="text/javascript" src="{% static 'ang/polyfills.js' %}"></script>
-	<script type="text/javascript" src="{% static 'ang/main.js' %}"></script>	
-
-	<app-root>		
-	</app-root>
 	
 	<script>
 		// When the user scrolls the page, execute stickyHeader 

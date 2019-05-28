@@ -25,6 +25,7 @@ urlpatterns = [
     path('', Index.as_view()),    
     path('admin/', admin.site.urls),
     # path('personal/', include('personal.urls')),
+    path('personal/contact/', Index.as_view()),
     path('api/users', UserList.as_view()),
     path('api/posts', PostList.as_view()),
     url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
