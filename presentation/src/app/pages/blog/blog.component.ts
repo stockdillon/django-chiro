@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogPostsService } from '../blog-posts.service';
+// import { BlogPostsService } from '../../blog-posts.service';
+import { BlogPostsService } from '../../blog-posts.service';
 
 export interface Post{
   id: number;
