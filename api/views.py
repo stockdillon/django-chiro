@@ -5,8 +5,8 @@ from rest_framework import serializers
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, AllowAny
 from rest_framework.response import Response
-from api.models import Post
-from api.serializers import UserSerializer, PostSerializer
+from api.models import Post, BlogPostComment
+from api.serializers import UserSerializer, PostSerializer, BlogPostCommentSerializer
 
 
 # Create your views here.
@@ -47,3 +47,8 @@ class PostList(generics.ListCreateAPIView):
     #     """
     #     # return Response(Post.objects.all())        
     #     return Response([])        
+
+class BlogPostCommentList(generics.ListCreateAPIView):
+    queryset = BlogPostComment.objects.all()
+    serializer_class = BlogPostCommentSerializer
+    permission_classes = (AllowAny,)
