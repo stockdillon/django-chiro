@@ -19,7 +19,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // import { BlogComponent } from './pages/blog/blog.component';
 // import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
-// import { BlogPostsService } from './blog-posts.service';
 
 
 
@@ -54,24 +53,7 @@ import { PagesModule } from './pages/pages.module';
     PagesModule,
   ],
   exports: [
-    // MatCommonModule,
-    // MatTableModule,
-    // MatCardModule,
-    // MatInputModule,
-    // MatFormFieldModule,
-    // MatButtonModule,
-    // MatToolbarModule,
-    // MatSidenavModule,
-    // MatRadioModule,
-    // MatDialogModule,
-    // MatSlideToggleModule,
-    // MatCheckboxModule,
-    // MatIconModule,
-    // MatListModule,
-    // MatMenuModule,
-    // MatProgressSpinnerModule,
     HttpClientModule,
-    // BlogPostsService,
   ],
   providers: [{provide: APP_BASE_HREF, useValue: ''}],
   bootstrap: [AppComponent]

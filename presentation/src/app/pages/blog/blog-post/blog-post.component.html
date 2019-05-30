@@ -1,0 +1,67 @@
+<mat-card>
+    <!-- <li *ngFor="let obj of posts">{{obj | json}}</li> -->
+    <mat-card-header>
+      <mat-card-title>{{post.title}}</mat-card-title>
+      <mat-card-subtitle>{{post.publish_on}}</mat-card-subtitle>
+      <div mat-card-avatar class="joe-blog-post-header-image">
+        <!-- <i class="material-icons">person</i> -->
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+          {{post.content}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>
+          <i class="material-icons">
+            thumb_up
+          </i>
+        </button>
+        <button mat-button>
+          <i class="material-icons">
+            thumb_down
+          </i>
+        </button>
+        <!-- <button mat-button>SHARE</button> -->
+        <!-- <a>
+            <i class="fas fa-thumbs-up" style="color:blue;"></i>
+        </a>
+        <a>
+            <i class="fas fa-thumbs-down" style="color:blue;"></i>
+        </a> -->
+      </mat-card-actions>
+    <!-- <li *ngFor="let obj of posts">{{obj.title}}</li> -->
+
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Comment
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+              Create a new blog post
+            </mat-panel-description> -->
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+            <input matInput placeholder="Your comment">
+          </mat-form-field>
+          <mat-action-row>
+              <button mat-button (click)="clicked()">Click me</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>
+
+
+<!-- SNACK BAR BEGIN -->
+<!-- <mat-form-field>
+  <mat-label>Snack bar duration (seconds)</mat-label>
+  <input type="number" [(ngModel)]="durationInSeconds" matInput>
+</mat-form-field> -->
+
+<!-- <button mat-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+  Pizza party
+</button> -->
+<!-- SNACK BAR END -->

@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 // import { BlogPostsService } from '../../blog-posts.service';
 import { BlogPostsService } from '../../blog-posts.service';
+// import { HttpClient } from '@angular/common/http';
+import { Post } from './blog.models';
 
-export interface Post{
-  id: number;
-  title: string;
-  content: string;
-  updated_on: string;
-  created_on: string;
-  publish_on: string;
-}
+// export interface Post{
+//   id: number;
+//   title: string;
+//   content: string;
+//   updated_on: string;
+//   created_on: string;
+//   publish_on: string;
+// }
 
 @Component({
   selector: 'app-blog',
@@ -17,7 +19,7 @@ export interface Post{
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  blogPostsService : BlogPostsService;
+  blogPostsService: BlogPostsService;
   posts: Post[];
 
   constructor( blogPostsService: BlogPostsService) {
