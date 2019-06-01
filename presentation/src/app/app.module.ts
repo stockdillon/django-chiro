@@ -19,6 +19,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // import { BlogComponent } from './pages/blog/blog.component';
 // import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
+import { NavModule } from './nav/nav.module';
 
 
 
@@ -51,6 +52,7 @@ import { PagesModule } from './pages/pages.module';
     // HttpClientModule,
     // BlogPostsService,
     PagesModule,
+    NavModule,
   ],
   exports: [
     HttpClientModule,

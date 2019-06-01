@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { BlogPostsService } from '../../blog-posts.service';
 import { BlogPostsService } from '../../blog-posts.service';
 // import { HttpClient } from '@angular/common/http';
-import { Post } from './blog.models';
+import { Post, BlogPostComment } from './blog.models';
 
 // export interface Post{
 //   id: number;
@@ -21,6 +21,7 @@ import { Post } from './blog.models';
 export class BlogComponent implements OnInit {
   blogPostsService: BlogPostsService;
   posts: Post[];
+  comments: BlogPostComment[];
 
   constructor( blogPostsService: BlogPostsService) {
     this.blogPostsService = blogPostsService;
@@ -33,7 +34,14 @@ export class BlogComponent implements OnInit {
         console.log(`title: ${post.title}`);
       });
       // console.log(`Result of service: ${result.title}`);
-    })
+    });
+
+    this.blogPostsService.getComments().subscribe((comments: BlogPostComment[]) => {
+      this.comments = comments;
+      comments.forEach(comment => {
+        console.log(`title: ${comment.text}`);
+      });
+    });
   }
 
 }

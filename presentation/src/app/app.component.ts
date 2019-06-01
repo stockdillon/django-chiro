@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
   title = 'presentation';
-  mobileQuery: MediaQueryList;
 
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
@@ -21,18 +20,10 @@ export class AppComponent implements OnInit{
        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
 
-  private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+  constructor() {
   }
 
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
-  shouldRun = true;  
 
   ngOnInit(){
     console.log("test");
@@ -49,13 +40,10 @@ export class AppComponent implements OnInit{
       },
       dataType: "JSON"
       });
-  });    
+  });
   };
 
-  getBlogPosts(){
-      
-  }
-  
+
   // close(selector: string){
   //   console.log(`selector: ${selector}`)
   //   // $('mat-sidenav').toggle();

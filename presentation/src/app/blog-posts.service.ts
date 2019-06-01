@@ -9,8 +9,13 @@ export class BlogPostsService {
   constructor(private http: HttpClient) { }
 
   url = 'http://127.0.0.1:8000/api/posts';
-  
-  getBlogPosts(){
+  commentUrl = 'http://127.0.0.1:8000/api/posts/comments';
+
+  getBlogPosts() {
     return this.http.get(this.url);
+  }
+
+  getComments() {
+    return this.http.get(this.commentUrl);
   }
 }

@@ -9,6 +9,10 @@ import { MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule,MatT
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import { PagesModule } from '../pages/pages.module';
+// import { NavComponent } from './nav/nav.component';
+import { NavRoutingModule } from './nav-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [NavComponent],
@@ -33,6 +37,10 @@ import { PagesModule } from '../pages/pages.module';
     // HttpClientModule,
     // BlogPostsService,
     PagesModule,
+    NavRoutingModule,
+  ],
+  exports: [
+    NavComponent,
   ]
 })
 export class NavModule { }
