@@ -25,7 +25,11 @@ SECRET_KEY = 'f(px0^43h%j7)rg#&-&dcl-uh!&*3nx#g4(nmoaxxb!%)3^!7%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "ec2-18-209-24-24.compute-1.amazonaws.com",
+]
 
 DJANGO_SETTINGS_MODULE='mysite.settings'
 

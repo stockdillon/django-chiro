@@ -38,3 +38,63 @@ button.mat-icon-button {
 /* .example-toolbar {
   height: 100%;
 } */
+
+.mat-toolbar.mat-primary {
+  background: #007AFF;
+  color: #fff;
+}
+
+
+
+.btn-info {
+  font-weight: 600;
+  color: white;
+  border-color: white;
+  background-color: inherit !important;
+  border: 0px !important;
+  box-shadow: 0 0 0 0rem !important;
+}
+
+.btn-info:hover, .btn-info:active, .btn-info:not(:disabled):not(.disabled):active {
+  font-weight: 600;
+  /* color: black;
+  border-color: white;
+  background-color: white;     */
+}
+
+.btn-info:active {
+  background-color: inherit;
+}
+
+.dropdown-item {
+  color: black;
+  background-color: white;
+}
+
+/* .dropdown.show, .dropdown-menu.show {
+  color: inherit;
+  background-color: inherit;
+} */
+
+.dropdown.show > .btn-info {
+  font-weight: 600;
+  color: black;
+  border-color: white;
+  background-color: white;
+}
+
+a:hover, #dropdownMenuButton:hover {
+  opacity: 1;
+  color: white;
+}
+a:not(:hover), #dropdownMenuButton:not(:hover) {
+  opacity: .75;
+}
+
+a:hover, a:not(:hover) {
+  color: inherit !important;
+}
+
+.color-white {
+  color: white;
+}

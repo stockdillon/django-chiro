@@ -41,12 +41,19 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = (AllowAny,)
 
-    # def get(self, request, format=None):
-    #     """
-    #     Return a list of all blog posts.
-    #     """
-    #     # return Response(Post.objects.all())        
-    #     return Response([])        
+    def get(self, request, format=None):
+        """
+        Return a list of all blog posts.
+        """
+        # return Response(Post.objects.all())        
+        # return Response([])
+        # titles = [{p.id, p.text} for p in BlogPostComment.objects.filter(id=1).prefetch_related('post_id')]
+        result = [
+                    p for p in Post.objects
+                        .values('id', 'title', 'content', 'updated_on', 'created_on', 'publish_on', 'blogpostcomment__text')
+                    ]              
+        # result = [{p.title} for p in Post.objects.filter(blogpostcomment__post_id=3)]
+        return Response(result)
 
 class BlogPostCommentList(generics.ListCreateAPIView):
     queryset = BlogPostComment.objects.all()
