@@ -150,7 +150,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"), 
 ]
 
-STATIC_ROOT = "/home/ubuntu/django_projects/static/"
+# STATIC_ROOT = "/home/ubuntu/django_projects/static/"
+STATIC_ROOT = "/home/ubuntu/django_projects/joe-static/"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'object_detection/media')
