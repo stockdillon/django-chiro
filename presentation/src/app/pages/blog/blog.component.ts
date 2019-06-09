@@ -34,14 +34,14 @@ export class BlogComponent implements OnInit {
         console.log(`title: ${post.title}`);
       });
       // console.log(`Result of service: ${result.title}`);
-    });
+    }, (error: any) => console.log(error));
 
     this.blogPostsService.getComments().subscribe((comments: BlogPostComment[]) => {
       this.comments = comments;
       comments.forEach(comment => {
         console.log(`title: ${comment.text}`);
       });
-    });
+    }, (error: any) => console.log(error));
   }
 
 }
