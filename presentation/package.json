@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build:dev": "ng build --output-path ../static/ang --watch --output-hashing none --source-map=false",
+    "build:prod": "ng build --prod --output-path ../static/ang --output-hashing none --source-map=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
