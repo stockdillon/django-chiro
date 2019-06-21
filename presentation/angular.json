@@ -34,6 +34,22 @@
             "es5BrowserSupport": true
           },
           "configurations": {
+            "dev": {
+              "extractCss": true,
+              "watch": true,
+              "outputPath": "../static/ang",
+              "sourceMap": false,
+              "outputHashing": "none",
+              "namedChunks": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "vendorChunk": false,
+              "extractLicenses": true
+            },
             "production": {
               "fileReplacements": [
                 {
