@@ -5,10 +5,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule,MatTableModule,
-          MatSidenavModule, MatRadioModule, MatDialogModule, MatSlideToggleModule,
-          // MatCommonModule,
-          MatCheckboxModule, MatIconModule, MatMenuModule
+import {
+  // MatInputModule,
+  MatButtonModule,
+  // MatCardModule,
+  // MatFormFieldModule,
+  // MatTableModule,
+  MatSidenavModule,
+  // MatRadioModule,
+  // MatDialogModule,
+  // MatSlideToggleModule,
+  MatCommonModule,
+  // MatCheckboxModule,
+  MatIconModule,
+  // MatMenuModule
         } from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatListModule} from '@angular/material/list';
@@ -35,7 +45,7 @@ import { ComponentsModule } from './components/components.module';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // MatCommonModule,
+    MatCommonModule,
     // MatTableModule,
     // MatCardModule,
     // MatInputModule,
