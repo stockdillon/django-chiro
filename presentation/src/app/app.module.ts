@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule,MatTableModule,
           MatSidenavModule, MatRadioModule, MatDialogModule, MatSlideToggleModule,
-          MatCommonModule, MatCheckboxModule, MatIconModule, MatMenuModule
+          // MatCommonModule,
+          MatCheckboxModule, MatIconModule, MatMenuModule
         } from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatListModule} from '@angular/material/list';
@@ -21,6 +22,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { PagesModule } from './pages/pages.module';
 import { NavModule } from './nav/nav.module';
 
+import { ComponentsModule } from './components/components.module';
 
 
 @NgModule({
@@ -53,6 +55,7 @@ import { NavModule } from './nav/nav.module';
     // BlogPostsService,
     PagesModule,
     NavModule,
+    ComponentsModule,
   ],
   exports: [
     HttpClientModule,

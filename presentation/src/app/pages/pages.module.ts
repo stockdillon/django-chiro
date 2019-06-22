@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatTableModule,
   MatSidenavModule, MatRadioModule, MatDialogModule, MatSlideToggleModule,
-  MatCommonModule, MatCheckboxModule, MatIconModule, MatMenuModule, MatToolbarModule,
+  // MatCommonModule,
+  MatCheckboxModule, MatIconModule, MatMenuModule, MatToolbarModule,
   MatListModule, MatProgressSpinnerModule
 } from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -14,6 +15,7 @@ import { BlogComponent } from '../pages/blog/blog.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { BlogPostComponent } from './blog/blog-post/blog-post.component';
 import { PizzaPartyComponent } from './blog/blog-post/blog-post.component';
+import {ComponentsModule} from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { PizzaPartyComponent } from './blog/blog-post/blog-post.component';
   imports: [
     CommonModule,
     FormsModule,
-    MatCommonModule,
+    // MatCommonModule,
     MatTableModule,
     MatCardModule,
     MatInputModule,
@@ -44,6 +46,7 @@ import { PizzaPartyComponent } from './blog/blog-post/blog-post.component';
     MatProgressSpinnerModule,
     MatExpansionModule,
     MatSnackBarModule,
+    ComponentsModule,
   ],
   exports: [
     HomeComponent,

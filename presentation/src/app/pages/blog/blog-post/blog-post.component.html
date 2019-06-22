@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>{{post.title}}</mat-card-title>
       <mat-card-subtitle>{{post.publish_on}}</mat-card-subtitle>
-      <div mat-card-avatar class="joe-blog-post-header-image">
+      <div mat-card-avatar class="blog-post-header-image">
         <!-- <i class="material-icons">person</i> -->
       </div>
     </mat-card-header>
@@ -33,23 +33,43 @@
       </mat-card-actions>
     <!-- <li *ngFor="let obj of posts">{{obj.title}}</li> -->
 
+    <mat-form-field class="comment-full-width" [style.fontSize]="10">
+      <!-- <mat-label>Your thoughts here</mat-label> -->
+      <textarea matInput placeholder="Leave a comment..."
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="2"
+                cdkAutosizeMaxRows="8"></textarea>
+    </mat-form-field>
+
+    <mat-action-row>
+      <button mat-button (click)="clicked()">Submit</button>
+    </mat-action-row>
+
     <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Comment
+              Write a comment...
             </mat-panel-title>
             <!-- <mat-panel-description>
               Create a new blog post
             </mat-panel-description> -->
           </mat-expansion-panel-header>
 
-          <mat-form-field>
-            <input matInput placeholder="Your comment">
+          <!-- <mat-form-field [style.fontSize]="fontSize.value"> -->
+          <mat-form-field class="comment-full-width" [style.fontSize]="14">
+            <!-- <mat-label>Your thoughts here</mat-label> -->
+            <textarea matInput placeholder="Leave a comment..."
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="2"
+                      cdkAutosizeMaxRows="8"></textarea>
           </mat-form-field>
+
           <mat-action-row>
-              <button mat-button (click)="clicked()">Click me</button>
-            </mat-action-row>
+            <button mat-button (click)="clicked()">Submit</button>
+          </mat-action-row>
         </mat-expansion-panel>
     </mat-accordion>
 </mat-card>

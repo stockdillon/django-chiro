@@ -1,10 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+interface comment {
+  id: number;
+  text: string;
+  created_date: Date;
+  post_id: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class BlogPostsService {
+  allComments: Array<comment>;
 
   constructor(private http: HttpClient) { }
 
@@ -14,6 +22,10 @@ export class BlogPostsService {
 
   getBlogPosts() {
     return this.http.get(this.url);
+  }
+
+  getCommentsById(id: number) {
+    return this.http.get(`${this.commentUrl}${id}`);
   }
 
   getComments() {

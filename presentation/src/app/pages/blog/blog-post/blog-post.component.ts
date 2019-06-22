@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Post } from '../blog.models';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+
 
 @Component({
   selector: 'app-blog-post',
@@ -13,6 +15,9 @@ export class BlogPostComponent implements OnInit {
   constructor(
     private _snackBar: MatSnackBar
   ) { }
+
+  // @ViewChild('autosize') autosize: CdkTextareaAutosize;
+
 
   ngOnInit() {
   }
