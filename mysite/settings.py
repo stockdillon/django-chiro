@@ -30,6 +30,9 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "ec2-18-209-24-24.compute-1.amazonaws.com",
     "18.209.24.24",
+    "107.21.25.11",
+    "dillonstock.com",
+    "www.dillonstock.com",
 ]
 
 DJANGO_SETTINGS_MODULE='mysite.settings'
