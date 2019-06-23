@@ -12,8 +12,8 @@ import { QuoteService } from 'src/app/services/quote.service';
   `],
 })
 export class QuoteSnackBarComponent {
-  // quoteService: QuoteService;
-  constructor(private quoteService: QuoteService) {
-    // this.quoteService = quoteService;
+  quoteService: QuoteService;
+  constructor( quoteService: QuoteService) {
+    this.quoteService = quoteService;
   }
 }
