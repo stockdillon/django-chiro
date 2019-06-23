@@ -1,1 +1,21 @@
-<app-quote *ngFor="let item of [1,2,3]"></app-quote>
+<!-- <app-quote *ngFor="let quote of quotes" [quote]='quote'></app-quote> -->
+
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Legendary Quotes</mat-card-title>
+    <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
+  </mat-card-header>
+  <mat-card-content>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-button
+      (click)="openSnackBar()"
+      aria-label="Show an example snack-bar"
+      class="btn btn-primary">
+      Quote
+  </button>
+  </mat-card-actions>
+</mat-card>

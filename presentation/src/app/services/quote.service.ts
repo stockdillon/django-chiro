@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class QuoteService {
-
-  constructor() { }
+  quote: string = 'this is only a test';
+  constructor() {
+    this.quote = 'Testing quote service';
+  }
 }
