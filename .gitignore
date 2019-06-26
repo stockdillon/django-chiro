@@ -5,4 +5,4 @@ object_detection/__pycache__/
 personal/__pycache__/
 webapp/__pycache__/
 photo_gallery/__pycache__/
-static/ang/
+# static/ang/
