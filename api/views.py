@@ -6,7 +6,10 @@ from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, AllowAny
 from rest_framework.response import Response
 from api.models import Post, BlogPostComment
-from api.serializers import UserSerializer, PostSerializer, BlogPostCommentSerializer
+from api.serializers import UserSerializer, PostSerializer, BlogPostCommentSerializer, CoinbaseTransactionsSerializer
+from django.views.generic import TemplateView
+from django.http import HttpResponse
+import json
 
 
 # Create your views here.
@@ -59,3 +62,18 @@ class BlogPostCommentList(generics.ListCreateAPIView):
     queryset = BlogPostComment.objects.all()
     serializer_class = BlogPostCommentSerializer
     permission_classes = (AllowAny,)
+
+
+class CoinbaseTransactionList(TemplateView):
+    def get(self, request):
+        api_key = "GUODYAv11MXO2HFm"
+        api_secret = "iV0vbIyIJUspnRsjg1aYLIanzHfdoaG8"
+        from coinbase.wallet.client import Client
+        client = Client(api_key, api_secret)   
+        accounts = client.get_accounts()
+        assert isinstance(accounts.data, list)
+        assert accounts[0] is accounts.data[0]
+        assert len(accounts[::]) == len(accounts.data)
+        wallet_id = accounts.data[11]['id']
+        transactions = client.get_transactions(wallet_id)
+        return HttpResponse(json.dumps(client.get_transactions(wallet_id)), content_type='application/json')

@@ -113,3 +113,15 @@ class BlogPostComment(models.Model):
 
         def __unicode__(self):
                 return self.title
+
+class CoinbaseTransaction(models.Model):
+        post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
+        text = models.TextField()
+        created_date = models.DateField(auto_now_add=True)
+        list_display = ('title', 'category', 'tags', 'author', 'publish_on','created_date','updated_on')
+        search_fields = ['post_id','created_date']
+        list_filter = ['created_date','post_id']
+        date_hierarchy = 'created_date'
+
+        def __unicode__(self):
+                return self.title

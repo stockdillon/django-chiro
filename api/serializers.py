@@ -17,3 +17,8 @@ class BlogPostCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogPostComment
         fields = '__all__'
+
+class CoinbaseTransactionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogPostComment
+        fields = '__all__'

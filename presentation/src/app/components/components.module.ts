@@ -5,6 +5,7 @@ import { QuoteTickerComponent } from './quote/quote-ticker/quote-ticker.componen
 import { QuoteSnackBarComponent } from './material-components/quote-snack-bar.component';
 // import {MatCard} from '@angular/material/card';
 import {MatCardModule} from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {MatCardModule} from '@angular/material';
   imports: [
     CommonModule,
     MatCardModule,
+    MatTableModule,
   ],
   exports: [
     QuoteComponent,

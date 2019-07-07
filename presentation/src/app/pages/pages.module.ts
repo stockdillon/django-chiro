@@ -17,6 +17,8 @@ import { BlogPostComponent } from './blog/blog-post/blog-post.component';
 import { PizzaPartyComponent } from './blog/blog-post/blog-post.component';
 import {ComponentsModule} from '../components/components.module';
 
+import {QuoteService} from '../services/quote.service';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -53,9 +55,10 @@ import {ComponentsModule} from '../components/components.module';
     BlogComponent,
     ContactComponent,
   ],
-  // providers: [
-  //   BlogPostsService,
-  // ]
+  providers: [
+    // BlogPostsService,
+    // QuoteService,
+  ],
   entryComponents: [PizzaPartyComponent],
 })
 export class PagesModule { }

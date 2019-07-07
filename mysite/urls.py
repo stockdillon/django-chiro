@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import UserList, PostList, BlogPostCommentList
+from api.views import UserList, PostList, BlogPostCommentList, CoinbaseTransactionList
 from django.urls import path, include
 from mysite.views import Index
 from django.views.generic.base import TemplateView
@@ -29,5 +29,7 @@ urlpatterns = [
     path('api/users', UserList.as_view()),
     path('api/posts', PostList.as_view()),
     path('api/posts/comments', BlogPostCommentList.as_view()),
-    url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
+    path('api/coinbase/transactions', CoinbaseTransactionList.as_view()),
+    # url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
+    url(r'^.*', Index.as_view(), name="home")
 ]
