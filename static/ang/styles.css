@@ -1163,6 +1163,13 @@ mat-footer-row,mat-header-row,mat-row,td.mat-cell,td.mat-footer-cell,th.mat-head
 .mat-simple-snackbar-action{color:inherit}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+a:hover {
+  text-decoration: none;
+}
+button:focus {
+  outline: none !important;
+}
+
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)

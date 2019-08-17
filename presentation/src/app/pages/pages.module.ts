@@ -18,6 +18,7 @@ import { PizzaPartyComponent } from './blog/blog-post/blog-post.component';
 import {ComponentsModule} from '../components/components.module';
 
 import {QuoteService} from '../services/quote.service';
+import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {QuoteService} from '../services/quote.service';
     ContactComponent,
     BlogPostComponent,
     PizzaPartyComponent,
+    ActivityComponent,
   ],
   imports: [
     CommonModule,

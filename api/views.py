@@ -5,8 +5,8 @@ from rest_framework import serializers
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, AllowAny
 from rest_framework.response import Response
-from api.models import Post, BlogPostComment
-from api.serializers import UserSerializer, PostSerializer, BlogPostCommentSerializer, CoinbaseTransactionsSerializer
+from api.models import Post, BlogPostComment, Photo
+from api.serializers import UserSerializer, PostSerializer, BlogPostCommentSerializer, CoinbaseTransactionsSerializer, PhotosSerializer
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 import json
@@ -77,3 +77,8 @@ class CoinbaseTransactionList(TemplateView):
         wallet_id = accounts.data[11]['id']
         transactions = client.get_transactions(wallet_id)
         return HttpResponse(json.dumps(client.get_transactions(wallet_id)), content_type='application/json')
+
+class Photos(generics.ListCreateAPIView):
+    queryset = Photo.objects.all()
+    serializer_class = PhotosSerializer
+    permission_classes = (AllowAny,)    

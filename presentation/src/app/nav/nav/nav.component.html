@@ -1,79 +1,95 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
 
   <mat-toolbar color="primary" class="example-toolbar">
-      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">Dillon Stock</h1>
-  <div class="container-fluid">
-    <div class="col col-lg-4 offset-lg-8">
-      <a href="https://www.linkedin.com/in/dillon-stock-933b44160/" target="_blank" class="btn btn-lg linked-in"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="https://github.com/stockdillon/" class="btn btn-lg outline github" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> </a>
-      <a href="https://www.instagram.com/dillonstock/" class="btn btn-lg instagram" target="_blank" ><i class="fab fa-instagram" aria-hidden="true"></i> </a>
-      <a href="https://twitter.com/dillonstock" class="btn btn-lg twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> </a>
-      <a href="https://www.facebook.com/dillon.stock.1" class="btn btn-lg facebook" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i> </a>
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Dillon Stock</h1>
+    <div class="container-fluid">
+      <div class="col col-lg-4 offset-lg-8">
+        <a href="https://www.linkedin.com/in/dillon-stock-933b44160/" target="_blank" class="btn btn-lg linked-in"><i
+            class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/stockdillon/" class="btn btn-lg outline github" target="_blank"><i
+            class="fab fa-github" aria-hidden="true"></i> </a>
+        <a href="https://www.instagram.com/dillonstock/" class="btn btn-lg instagram" target="_blank"><i
+            class="fab fa-instagram" aria-hidden="true"></i> </a>
+        <a href="https://twitter.com/dillonstock" class="btn btn-lg twitter" target="_blank"><i class="fab fa-twitter"
+            aria-hidden="true"></i> </a>
+        <a href="https://www.facebook.com/dillon.stock.1" class="btn btn-lg facebook" target="_blank"><i
+            class="fab fa-facebook" aria-hidden="true"></i> </a>
+      </div>
+      <div class="row">
+      </div>
     </div>
-    <div class="row">
-    </div>
-  </div>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
       <mat-nav-list>
-          <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
-          <a mat-list-item routerLink="home">
-              <i class="material-icons">
-                  home
-              </i>
-              <mat-divider [vertical]='true' [inset]='true'></mat-divider>
-                  Home
-          </a>
-          <a mat-list-item routerLink=".">
-              <i class="material-icons">
-                  info
-              </i>
-                  About
-          </a>
-          <a mat-list-item routerLink=".">
-              <i class="material-icons">
-                  computer
-              </i>
-                  Projects
-          </a>
-          <!-- <a mat-list-item routerLink=".">
-              <i class="material-icons">
-                  list
-              </i>
-                  Services
-          </a> -->
-          <a mat-list-item routerLink="blog" color="my-theme-accent">
-              <i class="material-icons">
-                  textsms
-              </i>
-                  Blog
-          </a>
-          <a mat-list-item routerLink="contact">
-              <i class="material-icons">
-                  perm_contact_calendar
-              </i>
-                  Contact
-          </a>
+        <a routerLink="{{menuItem.link}}" mat-list-item *ngFor="let menuItem of menuItems">
+          <i class="material-icons">
+            {{menuItem.icon}}
+          </i>
+          <div class="col-1"></div>
+          {{menuItem.label}}
+        </a>
+        <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
+        <!-- <a mat-list-item routerLink="home">
+          <i class="material-icons">
+            home
+          </i>
+          <mat-divider [vertical]='true' [inset]='true'></mat-divider>
+          Home
+        </a>
+        <a mat-list-item routerLink="Activity">
+          <i class="material-icons">
+            timeline
+          </i>
+          <mat-divider [vertical]='true' [inset]='true'></mat-divider>
+          Activity
+        </a>
+        <a mat-list-item routerLink="Gallery">
+          <i class="material-icons">
+            photo_library
+          </i>
+          <mat-divider [vertical]='true' [inset]='true'></mat-divider>
+          Gallery
+        </a>
+        <a mat-list-item routerLink=".">
+          <i class="material-icons">
+            info
+          </i>
+          About
+        </a>
+        <a mat-list-item routerLink=".">
+          <i class="material-icons">
+            computer
+          </i>
+          Projects
+        </a>
+        <a mat-list-item routerLink="blog" color="my-theme-accent">
+          <i class="material-icons">
+            textsms
+          </i>
+          Blog
+        </a>
+        <a mat-list-item routerLink="contact">
+          <i class="material-icons">
+            perm_contact_calendar
+          </i>
+          Contact
+        </a> -->
       </mat-nav-list>
-      </mat-sidenav>
+    </mat-sidenav>
 
-      <mat-sidenav-content>
-          <!-- <div class="container">
-            <div class="col">
-              <router-outlet></router-outlet>
-            </div>
-          </div> -->
-          <div class="container">
-            <div class="col">
-              <router-outlet></router-outlet>
-            </div>
-          </div>
-      </mat-sidenav-content>
+    <mat-sidenav-content>
+      <div class="container">
+        <div class="col">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
 <!-- <div class="container">

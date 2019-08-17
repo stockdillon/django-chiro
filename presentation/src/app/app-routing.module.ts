@@ -1,3 +1,4 @@
+import { ActivityComponent } from './pages/activity/activity.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
+  },
+  {
+    path: 'activity',
+    component: ActivityComponent,
   },
   {
     path: '**',

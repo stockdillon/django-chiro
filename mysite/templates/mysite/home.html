@@ -13,18 +13,6 @@
 </head>
 
 <body>
-<div class="wrapper">
-    {% comment %} <div class="d-flex justify-content-center">
-        <img class="responsive-img hoverable"  id="profileImg" src="{% static 'mysite/profile.jpg' %}" style='max-height:200px;' alt="face">
-        <img class="rounded hoverable"  src="{% static 'mysite/happy-family.jpg' %}" style='max-height:200px;' alt="face">
-    </div>   {% endcomment %}
-    
-    {% comment %} <button id="show-blog-posts" class="foo-button mdc-button">Toggle Blog Posts</button> {% endcomment %}
-    {% comment %} {% for post in posts %}
-        <div class="blog-post {% if not forloop.counter0|divisibleby:2 %}float-right{% endif %}">{{post.content}}</div>
-    {% endfor %}     {% endcomment %}
-</div>
-
 	<app-root>
 		<i class="fa fa-lg fa-spinner fa-spin" style="position:fixed; top:50%; left:50%; transform: translate(-50%, -50%);"></i>
 	</app-root>

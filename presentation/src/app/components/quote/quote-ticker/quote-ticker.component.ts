@@ -6,7 +6,6 @@ import { QuoteSnackBarComponent } from '../../material-components/quote-snack-ba
 import { Observable, timer } from 'rxjs';
 import { trigger, transition, useAnimation, style, animate } from '@angular/animations';
 import { slideInLeft, fadeIn, fadeInDown } from 'ng-animate';
-import { TransactionHistory, Addressinfo, Amount, Buy, Datum, Details, Network, To } from 'src/app/models/coinbase.models';
 
 // import { HostBinding } from '@angular/core';
 // import {
@@ -17,26 +16,6 @@ import { TransactionHistory, Addressinfo, Amount, Buy, Datum, Details, Network, 
 //   transition,
 //   // ...
 // } from '@angular/animations';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 @Component({
   selector: 'app-quote-ticker',
@@ -75,36 +54,32 @@ export class QuoteTickerComponent implements OnInit {
   durationInSeconds = 5;
   timer$: Observable<any>;
   hidden: boolean;
-  transactions$: Observable<any>;
-  transactions: TransactionHistory;
-  transactionHistory: Datum[] = new Array<Datum>();
-  displayedColumns: string[] = ['date', 'type', 'status', 'amount', 'currency'];
-  dataSource = ELEMENT_DATA;
+
+  paused: boolean = false;
+
   constructor(
     private snackBar: MatSnackBar,
-    private quoteServicer: QuoteService,
+    private quoteService: QuoteService,
     http: HttpClient
   ) {
     this.http = http;
   }
+
 
   ngOnInit() {
     this.timer$ = timer(0, 5 * 1000);
     this.timer$.subscribe((i: number) => {
       // console.log(`Timer has gone off ${i} times`);
       // this.hidden = true;
-      this.currentQuoteIndex = i % this.quotes.length;
+      if (!this.paused) {
+        this.currentQuoteIndex = i % this.quotes.length;
+      }
       // $('#quoteText').fade;
       // this.hidden = false;
       // console.log(this.quotes[this.currentQuoteIndex]);
      }
     );
-    this.transactions$ = this.http.get('api/coinbase/transactions');
-    this.transactions$.subscribe((result: TransactionHistory) => {
-      console.log(result.data);
-      this.transactions = result;
-      this.transactionHistory = result.data;
-    });
+
     // this.http.get('api/coinbase/transactions').subscribe((result: any) => {console.log(result); this.transactions = result; });
   }
 

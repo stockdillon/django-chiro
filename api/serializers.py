@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from api.models import Post, BlogPostComment
+from api.models import Post, BlogPostComment, Photo
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -21,4 +21,9 @@ class BlogPostCommentSerializer(serializers.ModelSerializer):
 class CoinbaseTransactionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogPostComment
+        fields = '__all__'
+
+class PhotosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Photo
         fields = '__all__'
