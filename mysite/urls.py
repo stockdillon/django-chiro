@@ -15,14 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import UserList, PostList, BlogPostCommentList, CoinbaseTransactionList, Photos
-from django.urls import path, include
+from api.views import UserList, PostList, BlogPostCommentList
+from api.views import CoinbaseTransactionList, Photos, DownloadResume
 from mysite.views import Index
-from django.views.generic.base import TemplateView
 from django.conf.urls import url
 
 urlpatterns = [
-    path('', Index.as_view()),    
+    path('', Index.as_view()),
     path('admin/', admin.site.urls),
     # path('personal/', include('personal.urls')),
     path('personal/contact/', Index.as_view()),
@@ -31,6 +30,7 @@ urlpatterns = [
     path('api/posts/comments', BlogPostCommentList.as_view()),
     path('api/coinbase/transactions', CoinbaseTransactionList.as_view()),
     path('api/photos', Photos.as_view()),
+    path('resume', DownloadResume),
     # url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
     url(r'^.*', Index.as_view(), name="home")
 ]

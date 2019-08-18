@@ -12,4 +12,8 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
+  downloadResume(){
+    document.getElementById('resume-download').click();
+  }
+
 }

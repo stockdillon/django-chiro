@@ -1,8 +1,8 @@
 export interface TransactionHistory {
-  data: Datum[];
+  data: Transaction[];
 }
 
-export interface Datum {
+export interface Transaction {
   id: string;
   type: string;
   status: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TransactionHistory, Datum } from 'src/app/models/coinbase.models';
+import { TransactionHistory, Transaction } from 'src/app/models/coinbase.models';
 import { HttpClient } from '@angular/common/http';
 import { ActivityService } from 'src/app/services/activity.service';
 
@@ -12,13 +12,14 @@ import { ActivityService } from 'src/app/services/activity.service';
 export class ActivityComponent implements OnInit {
   transactions$: Observable<any>;
   transactions: TransactionHistory;
-  transactionHistory: Datum[] = new Array<Datum>();
+  transactionHistory: Transaction[] = new Array<Transaction>();
   displayedColumns: string[] = ['date', 'type', 'status', 'amount', 'currency'];
 
   data: Array<any>;
+  sellData: Array<any>;
   http: any;
   pageDescription: string = `Here you can see what I\'ve been up to lately.
-  Shown below is my recent crypto-currency transactions and more.`;
+  Shown below are my recent crypto-currency transactions.`;
 
 
   constructor(
@@ -33,11 +34,16 @@ export class ActivityComponent implements OnInit {
     this.transactions$ = this.activityService.getTransactions();
     this.transactions$.subscribe((result: TransactionHistory) => {
     // this.transactions$.subscribe((result: TransactionHistory) => {
-      this.data = result.data.map(item => item.amount.amount);
+      this.data = result.data.filter(item => this.isBuy(item)).map(item => item.amount.amount);
+      this.sellData = result.data.filter(item => !this.isBuy(item)).map(item => item.amount.amount);
       console.log(`data in activity component: ${this.data}`);
       this.transactions = result;
       this.transactionHistory = result.data;
     });
+  }
+
+  isBuy(transaction: Transaction): boolean {
+    return transaction.type === 'buy';
   }
 
 }
