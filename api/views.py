@@ -16,7 +16,7 @@ from api.serializers import (BlogPostCommentSerializer,
 
 
 def DownloadResume(request):
-    file_path = "Dillon Stock Resume.pdf"
+    file_path = "DillonStockResume.pdf"
     FilePointer = open(file_path, "rb")
     response = HttpResponse(FilePointer, content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename=DillonStockResume.pdf'
