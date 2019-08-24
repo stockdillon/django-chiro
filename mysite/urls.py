@@ -13,12 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from api.views import UserList, PostList, BlogPostCommentList
-from api.views import CoinbaseTransactionList, Photos, DownloadResume
+
+from api.views import (BlogPostCommentList, CoinbaseTransactionList,
+                       DownloadResume, Photos, PostList, UserList)
 from mysite.views import Index
-from django.conf.urls import url
 
 urlpatterns = [
     path('', Index.as_view()),
@@ -29,6 +30,7 @@ urlpatterns = [
     path('api/posts', PostList.as_view()),
     path('api/posts/comments', BlogPostCommentList.as_view()),
     path('api/coinbase/transactions', CoinbaseTransactionList.as_view()),
+    # path('api/coinbase/prices', CoinbasePriceList.as_view()),
     path('api/photos', Photos.as_view()),
     path('resume', DownloadResume),
     # url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")

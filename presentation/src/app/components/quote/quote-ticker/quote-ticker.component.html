@@ -22,7 +22,24 @@
       class="btn btn-primary">
       Quote
   </button> -->
-  <button mat-raised-button color="primary" (click)="paused = !paused; openSnackBar()">Pause</button>
+    <!-- <button mat-raised-button color="primary" (click)="paused = !paused; openSnackBar()">Pause</button> -->
+    <button mat-button (click)='previousQuote()'>
+      <i class="material-icons">
+        skip_previous
+      </i>
+    </button>
+    <button mat-button>
+      <i *ngIf="!paused" class="material-icons" (click)="paused = true">
+        pause
+      </i>
+      <i *ngIf="paused" class="material-icons" (click)="paused = false">
+        play_arrow
+      </i>
+    </button>
+    <button mat-button (click)='nextQuote()'>
+      <i class="material-icons">
+        skip_next
+      </i>
+    </button>
   </mat-card-actions>
 </mat-card>
-

@@ -1,7 +1,9 @@
+import { ExchangeRates } from './activity.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,4 +24,10 @@ export class ActivityService implements OnInit{
     );
   }
 
+  getExchangeRates(): Observable<ExchangeRates> {
+    // return this.http.get<ExchangeRates>('https://api.coinbase.com/v2/prices/BTC-USD/buy').pipe(
+    return this.http.get<ExchangeRates>('https://api.coinbase.com/v2/exchange-rates').pipe(
+      share()
+    );
+  }
 }

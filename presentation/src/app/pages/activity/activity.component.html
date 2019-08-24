@@ -1,5 +1,7 @@
 <app-page-summary [title]='"Activity"' [description]='pageDescription'></app-page-summary>
 
+<h6>Recent cryto-currency transactions</h6>
+
 <div *ngIf="transactions$ | async">
   <!-- <div *ngFor="let t of transactions.data">
       <div>
@@ -26,7 +28,7 @@
       <td mat-cell *matCellDef="let element"> {{element.status}} </td>
     </ng-container>
     <ng-container matColumnDef="amount">
-      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <th mat-header-cell *matHeaderCellDef> Volume </th>
       <td mat-cell *matCellDef="let element"> {{element.amount.amount | number:'1.0-2'}} </td>
     </ng-container>
     <ng-container matColumnDef="currency">
@@ -40,5 +42,13 @@
 
 </div>
 
-
 <app-chart *ngIf="data" [chartData]='data'></app-chart>
+
+<p id="demo">Hello </p>
+
+<button mat-raised-button (click)="openDialog()">Search for a coin's price</button>
+<ol>
+  <li *ngFor="let price of searchedPrices">
+    {{price.coinName}}: <i>{{price.price}}</i>
+  </li>
+</ol>

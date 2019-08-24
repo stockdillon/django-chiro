@@ -17,8 +17,8 @@ import { BlogPostComponent } from './blog/blog-post/blog-post.component';
 import { PizzaPartyComponent } from './blog/blog-post/blog-post.component';
 import {ComponentsModule} from '../components/components.module';
 
-import {QuoteService} from '../services/quote.service';
 import { ActivityComponent } from './activity/activity.component';
+import { SharedModule } from '@shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -51,6 +51,7 @@ import { ActivityComponent } from './activity/activity.component';
     MatExpansionModule,
     MatSnackBarModule,
     ComponentsModule,
+    SharedModule,
   ],
   exports: [
     HomeComponent,

@@ -48,6 +48,7 @@ export class QuoteTickerComponent implements OnInit {
     'If I have seen further, it is by standing on the shoulders of giants. - Sir Isaac Newton',
     'There is nothing quite so useless as doing with great efficiency what should not be done at all. - Peter Drucker',
     'If your only tool is a hammer, every problem looks like a nail. - Anon',
+    `There are only 10 types of people in the world: Those who understand binary, and those who don't`,
   ];
   http: HttpClient;
   currentQuoteIndex = 0;
@@ -81,6 +82,13 @@ export class QuoteTickerComponent implements OnInit {
     );
 
     // this.http.get('api/coinbase/transactions').subscribe((result: any) => {console.log(result); this.transactions = result; });
+  }
+
+  nextQuote(){
+    
+  }
+  previousQuote() {
+    
   }
 
   openSnackBar() {
