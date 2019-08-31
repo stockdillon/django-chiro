@@ -8,8 +8,20 @@
     [description]='"Welcome to my online portfolio. Here you can view projects that I have worked on, read my blog posts, view my recent transaction activity, download my resume and more."'>
 </app-page-summary>
 
-<div *ngIf="commits$">
-    <div *ngFor="let commitWrapper of commitWrappers">
-        {{commitWrapper.date | date:'MM/dd/yyyy'}} {{commitWrapper.message}}
+
+
+<h3>
+    Recent Commits:
+</h3>
+Recent commits to the GitHub repo that contains source code for this website project.
+<!-- <div *ngIf="commits$"> -->
+<div>
+    <div *ngFor="let commitWrapper of commitWrappers" class="row">
+        <div class="col-2">
+            {{commitWrapper.date | date:'MM/dd/yyyy'}}
+        </div>
+        <div class="col-8">
+            {{commitWrapper.message}}
+        </div>
     </div>
 </div>

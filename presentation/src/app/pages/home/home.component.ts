@@ -15,8 +15,9 @@ export class CommitDisplay {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private homeService: HomeService ) {
-  }
+  constructor(
+    private homeService: HomeService
+  ) { }
 
   commits$: Observable<CommitWrapper[]>;
   // commitWrappers: CommitWrapper[];
@@ -24,17 +25,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.commits$ = this.homeService.getCommits();
-    this.commits$.subscribe((result: CommitWrapper[]) => {
-      // this.commitWrappers = result.slice(0, 5);
-      this.commitWrappers = new Array<CommitDisplay>();
-      console.log("commits");
-      result.slice(0, 5).forEach(commitWrapper => {
-        const date = new Date(commitWrapper.commit.author.date);
-        const dateString = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
-        console.log([commitWrapper.commit.message, dateString]);
-        this.commitWrappers.push({message: commitWrapper.commit.message, date: date} as CommitDisplay)
-      });
+    const subscription = this.commits$.subscribe((result: CommitWrapper[]) => {
+      this.commitWrappers = result.slice(0, 5).map(_ => ({
+        message: _.commit.message,
+        date: new Date(_.commit.author.date)
+      } as CommitDisplay));
     });
+    // subscription.unsubscribe();
   }
 
 }
