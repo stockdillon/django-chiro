@@ -1,3 +1,4 @@
+import { CommitWrapper } from '../pages/activity/github.model';
 import { ExchangeRates } from './activity.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
@@ -29,5 +30,9 @@ export class ActivityService implements OnInit{
     return this.http.get<ExchangeRates>('https://api.coinbase.com/v2/exchange-rates').pipe(
       share()
     );
+  }
+
+  getCommits(): Observable<CommitWrapper[]> {
+    return this.http.get<CommitWrapper[]>('https://api.github.com/repos/stockdillon/django-chiro/commits');
   }
 }
