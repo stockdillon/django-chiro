@@ -17,7 +17,6 @@ import { MatDialog } from '@angular/material';
 export class ActivityComponent implements OnInit {
   transactions$: Observable<any>;
   prices$: Observable<any>;
-  commits$: Observable<any>;
   transactions: TransactionHistory;
   transactionHistory: Transaction[] = new Array<Transaction>();
   displayedColumns: string[] = ['date', 'type', 'status', 'amount', 'currency'];
@@ -74,17 +73,6 @@ export class ActivityComponent implements OnInit {
       console.log(`EXCHANGE RATES:`);
       console.log(result);
     });
-
-    this.commits$ = this.activityService.getCommits();
-    this.commits$.subscribe( (result: CommitWrapper[]) => {
-      console.log("commits");
-      result.slice(0,5).forEach(commitWrapper => {
-        const date = new Date(commitWrapper.commit.author.date);
-        const dateString = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
-        console.log([commitWrapper.commit.message, dateString]);
-      });
-    });
-
   }
 
   isBuy(transaction: Transaction): boolean {

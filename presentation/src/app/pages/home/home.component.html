@@ -7,3 +7,9 @@
 <app-page-summary [title]='"Home"'
     [description]='"Welcome to my online portfolio. Here you can view projects that I have worked on, read my blog posts, view my recent transaction activity, download my resume and more."'>
 </app-page-summary>
+
+<div *ngIf="commits$">
+    <div *ngFor="let commitWrapper of commitWrappers">
+        {{commitWrapper.date | date:'MM/dd/yyyy'}} {{commitWrapper.message}}
+    </div>
+</div>

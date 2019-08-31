@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@shared/*": ["src/app/shared/*"]
+      "@shared/*": ["src/app/shared/*"],
+      "@core/*": ["src/app/core/*"]
     },
     "downlevelIteration": true,
     "outDir": "./dist/out-tsc",

@@ -80,7 +80,8 @@ export interface Parent {
     html_url: string;
 }
 
-export interface CommitWrapper {
+// export interface CommitWrapper extends test {
+export class CommitWrapper implements test {
     sha: string;
     node_id: string;
     commit: Commit;
@@ -90,4 +91,9 @@ export interface CommitWrapper {
     author: Author;
     committer: Committer;
     parents: Parent[];
+    test(): string{return "success!"};
+}
+
+export interface test {
+    test(): string;
 }

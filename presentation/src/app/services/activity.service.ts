@@ -19,20 +19,18 @@ export class ActivityService implements OnInit{
   ngOnInit(): void {
   }
 
+  // TODO: Move to Coinbase (core) service
   getTransactions(): Observable<any> {
     return this.http.get('api/coinbase/transactions').pipe(
       share()
     );
   }
 
+  // TODO: Move to Coinbase (core) service
   getExchangeRates(): Observable<ExchangeRates> {
     // return this.http.get<ExchangeRates>('https://api.coinbase.com/v2/prices/BTC-USD/buy').pipe(
     return this.http.get<ExchangeRates>('https://api.coinbase.com/v2/exchange-rates').pipe(
       share()
     );
-  }
-
-  getCommits(): Observable<CommitWrapper[]> {
-    return this.http.get<CommitWrapper[]>('https://api.github.com/repos/stockdillon/django-chiro/commits');
   }
 }
