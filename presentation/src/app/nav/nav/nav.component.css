@@ -38,3 +38,11 @@ button.mat-icon-button {
 a:hover {
   text-decoration: none;
 }
+
+mat-toolbar {
+  /* z-index: 2; */
+}
+
+.fixed-toolbar {
+  z-index: 2;
+}

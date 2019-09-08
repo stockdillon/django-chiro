@@ -4,7 +4,7 @@ import { MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, Mat
   MatSidenavModule, MatRadioModule, MatDialogModule, MatSlideToggleModule,
   // MatCommonModule,
   MatCheckboxModule, MatIconModule, MatMenuModule, MatToolbarModule,
-  MatListModule, MatProgressSpinnerModule, MatRippleModule
+  MatListModule, MatProgressSpinnerModule, MatRippleModule, MatTooltipModule, MatPaginatorModule
 } from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
@@ -51,6 +51,8 @@ import { SharedModule } from '@shared/shared.module'
     MatExpansionModule,
     MatSnackBarModule,
     MatRippleModule,
+    MatTooltipModule,
+    MatPaginatorModule,
     ComponentsModule,
     SharedModule,
   ],

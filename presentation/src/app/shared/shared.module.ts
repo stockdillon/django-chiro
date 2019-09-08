@@ -2,11 +2,15 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PriceSearchDialogComponent } from './price-search-dialog/price-search-dialog.component';
-import { MatFormFieldModule, MatInputModule, MatDialogModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { PageHeaderComponent } from './page-header/page-header.component';
+import { TypeWriterPipe } from './pipes/type-writer.pipe';
 
 @NgModule({
   declarations: [
-    PriceSearchDialogComponent
+    PriceSearchDialogComponent,
+    PageHeaderComponent,
+    TypeWriterPipe
   ],
   imports: [
     CommonModule,
@@ -14,9 +18,13 @@ import { MatFormFieldModule, MatInputModule, MatDialogModule } from '@angular/ma
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
-    PriceSearchDialogComponent
+    PriceSearchDialogComponent,
+    PageHeaderComponent,
+    TypeWriterPipe
   ],
   entryComponents: [
     PriceSearchDialogComponent

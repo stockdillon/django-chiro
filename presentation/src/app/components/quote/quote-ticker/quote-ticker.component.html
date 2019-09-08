@@ -1,34 +1,24 @@
-<!-- <app-quote *ngFor="let quote of quotes" [quote]='quote'></app-quote> -->
-
-
 <mat-card class="quote-card">
-  <mat-card-header>
-    <!-- <mat-card-title>Legendary Quotes</mat-card-title> -->
-    <!-- <mat-card-subtitle>subtitle</mat-card-subtitle> -->
-  </mat-card-header>
-  <!-- <mat-card-content [@fadeInDown]="fadeInDown" *ngFor="let q of [quotes[this.currentQuoteIndex]]"> -->
+  <!-- <mat-card-header>
+    <mat-card-title>Quotes</mat-card-title>
+  </mat-card-header> -->
   <mat-card-content [@slideInRight]="slideInRight" *ngFor="let q of [quotes[this.currentQuoteIndex]]">
-    <!-- <div *ngIf="!this.hidden"> -->
     <div id="quoteText">
       {{this.quotes[this.currentQuoteIndex]}}
     </div>
   </mat-card-content>
-  <!-- <img mat-card-image src="../../../../../../static/img/self.jpg"> -->
-  <mat-card-actions>
-    <!-- <button
-      mat-button
-      (click)="openSnackBar()"
-      aria-label="Show an example snack-bar"
-      class="btn btn-primary">
-      Quote
-  </button> -->
-    <!-- <button mat-raised-button color="primary" (click)="paused = !paused; openSnackBar()">Pause</button> -->
-    <button mat-button (click)='previousQuote()'>
+  <!-- <div class="row justify-content-center">
+    <button (click)="toggleQuoteActions()" mat-icon-button>
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  </div>
+  <mat-card-actions [@openClose]="showQuoteActions ? 'open' : 'closed'">
+    <button mat-raised-button (click)='previousQuote()' class="quote-ticker-button">
       <i class="material-icons">
         skip_previous
       </i>
     </button>
-    <button mat-button>
+    <button mat-raised-button class="quote-ticker-button">
       <i *ngIf="!paused" class="material-icons" (click)="paused = true">
         pause
       </i>
@@ -36,10 +26,10 @@
         play_arrow
       </i>
     </button>
-    <button mat-button (click)='nextQuote()'>
+    <button mat-raised-button class="quote-ticker-button" (click)='nextQuote()'>
       <i class="material-icons">
         skip_next
       </i>
     </button>
-  </mat-card-actions>
+  </mat-card-actions> -->
 </mat-card>

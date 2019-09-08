@@ -2,7 +2,8 @@
 
 <h6>Recent cryto-currency transactions</h6>
 
-<div *ngIf="transactions$ | async" class="example-ripple-container" matRipple [matRippleUnbounded]="true">
+<div *ngIf="transactions$ | async" class="example-ripple-container" matRipple [matRippleUnbounded]="false"
+  [matRippleColor]="'purple'" [matRippleRadius]="40">
   <!-- <div *ngFor="let t of transactions.data">
       <div>
         {{t | json}}

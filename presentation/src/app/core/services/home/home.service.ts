@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CommitWrapper } from 'src/app/pages/activity/github.model';
+import { CommitWrapper } from 'src/app/pages/home/models/github.model';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({

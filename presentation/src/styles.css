@@ -15,3 +15,7 @@ a:hover {
 button:focus {
   outline: none !important;
 }
+
+mat-sidenav-content {
+  height: 2000px;
+}

@@ -1,27 +1,55 @@
 <app-quote-ticker></app-quote-ticker>
 
-<div class="typewriter">
+<!-- <div class="typewriter">
     <h1 class='hello-there'>Hello there</h1>
-</div>
+</div> -->
 
-<app-page-summary [title]='"Home"'
+<!-- <app-page-summary [title]='"Home"'
     [description]='"Welcome to my online portfolio. Here you can view projects that I have worked on, read my blog posts, view my recent transaction activity, download my resume and more."'>
-</app-page-summary>
+</app-page-summary> -->
 
-
-
-<h3>
-    Recent Commits:
-</h3>
-Recent commits to the GitHub repo that contains source code for this website project.
-<!-- <div *ngIf="commits$"> -->
 <div>
-    <div *ngFor="let commitWrapper of commitWrappers" class="row">
-        <div class="col-2">
-            {{commitWrapper.date | date:'MM/dd/yyyy'}}
-        </div>
-        <div class="col-8">
-            {{commitWrapper.message}}
-        </div>
-    </div>
+    <h2 id="demo" style="height: 20px;"></h2>
 </div>
+
+<div class="row section-spacer">
+</div>
+
+<div class="row">
+    <h3>
+        Recent Commits
+    </h3>
+    <button mat-icon-button (click)="showGithubInfo()"
+        matTooltip="Recent GitHub commits for DillonStock.com">
+        <mat-icon>info</mat-icon>
+    </button>
+    <!-- <div [@openClose]="isOpenGithub ? 'open' : 'closed'">
+        Recent commits to the GitHub repo that contains source code for this website project
+    </div> -->
+</div>
+<!-- <div *ngIf="commits$"> -->
+
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8" matSort matSortActive="date"
+    matSortDirection="desc">
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date" mat-sort-header>
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date | date:'MM/dd/yyyy'}} </td>
+    </ng-container>
+
+    <!-- Comment Column -->
+    <ng-container matColumnDef="comment">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Comment </th>
+        <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>

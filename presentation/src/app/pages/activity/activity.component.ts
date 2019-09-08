@@ -1,11 +1,9 @@
-import { CommitWrapper } from './github.model';
 import { CoinPrice } from './activity.model';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Observable, timer } from 'rxjs';
 import { TransactionHistory, Transaction } from 'src/app/models/coinbase.models';
 import { ActivityService } from 'src/app/services/activity.service';
 import { ExchangeRates } from 'src/app/services/activity.model';
-import { JsonPipe } from '@angular/common';
 import { PriceSearchDialogComponent } from '@shared/price-search-dialog/price-search-dialog.component';
 import { MatDialog } from '@angular/material';
 
