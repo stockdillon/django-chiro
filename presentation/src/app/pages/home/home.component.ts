@@ -1,3 +1,4 @@
+import { AnimationService } from './../../core/services/animation/animation.service';
 import { CommitWrapper } from './models/github.model';
 import { HomeService } from '@core/services/home/home.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -11,6 +12,7 @@ import {
   transition,
 } from '@angular/animations';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { Router } from '@angular/router';
 
 export class CommitDisplay {
   message: string;
@@ -58,7 +60,9 @@ state('closed', style({
 })
 export class HomeComponent implements OnInit {
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    private animationService: AnimationService,
+    private router: Router
   ) { }
 
   isOpenGithub = false;
@@ -140,5 +144,11 @@ export class HomeComponent implements OnInit {
       this.typeWriterPaused = false;
     }
   }
+
+  goToActivity() {
+    console.log("Going to activity...")
+    this.animationService.slideToRIGHT();
+    this.router.navigateByUrl("activity");
+  }  
 
 }

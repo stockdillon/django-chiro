@@ -88,7 +88,10 @@
     <mat-sidenav-content>
       <div class="container">
         <div class="col">
-          <router-outlet></router-outlet>
+          <main [@routeTransition]="getAnimation()">
+            <router-outlet></router-outlet>
+          </main>
+          <!-- <router-outlet></router-outlet> -->
         </div>
       </div>
     </mat-sidenav-content>

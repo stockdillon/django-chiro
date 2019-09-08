@@ -2,11 +2,25 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import * as $ from 'jquery';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
+import { trigger, transition } from '@angular/animations';
+import { slideToLeft, slideToRight, slideToTop, slideToBottom } from '@core/services/animation/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('routeTransition', [
+      transition("* => slideToLeft", slideToLeft),
+      transition("* => slideToRight", slideToRight),
+      transition("* => slideToTop", slideToTop),
+      transition("* => slideToBottom", slideToBottom),
+      transition("* => slideToLeftDuplicate", slideToLeft),
+      transition("* => slideToRightDuplicate", slideToRight),
+      transition("* => slideToTopDuplicate", slideToTop),
+      transition("* => slideToBottomDuplicate", slideToBottom),
+    ])
+  ],  
 })
 export class AppComponent implements OnInit{
   title = 'presentation';

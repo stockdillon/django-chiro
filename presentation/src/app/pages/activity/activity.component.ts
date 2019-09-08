@@ -51,7 +51,7 @@ export class ActivityComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log(`The dialog was closed (${result})`);
       this.animal = result;
     });
   }  

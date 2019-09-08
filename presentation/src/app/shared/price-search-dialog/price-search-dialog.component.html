@@ -1,11 +1,11 @@
-<h1 mat-dialog-title>Coin Price Lookup</h1>
+<h1 mat-dialog-title>Price Lookup</h1>
 <div mat-dialog-content>
-  <p>Please enter the name of a coin</p>
+  <!-- <p>Please enter the name of a coin</p> -->
   <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
+    <input matInput [(ngModel)]="data.animal" placeholder="Coin name">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  <button mat-raised-button (click)="onNoClick()">Close</button>
+  <button mat-raised-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
 </div>

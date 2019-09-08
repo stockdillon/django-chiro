@@ -12,6 +12,8 @@
     <h2 id="demo" style="height: 20px;"></h2>
 </div>
 
+<button mat-button (click)="goToActivity()">Slide Right to Activity</button>
+
 <div class="row section-spacer">
 </div>
 
@@ -19,8 +21,7 @@
     <h3>
         Recent Commits
     </h3>
-    <button mat-icon-button (click)="showGithubInfo()"
-        matTooltip="Recent GitHub commits for DillonStock.com">
+    <button mat-icon-button (click)="showGithubInfo()" matTooltip="Recent GitHub commits for DillonStock.com">
         <mat-icon>info</mat-icon>
     </button>
     <!-- <div [@openClose]="isOpenGithub ? 'open' : 'closed'">

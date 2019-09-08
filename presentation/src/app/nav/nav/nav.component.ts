@@ -1,5 +1,8 @@
+import { AnimationService } from './../../core/services/animation/animation.service';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { trigger, transition } from '@angular/animations';
+import { slideToLeft, slideToRight, slideToTop, slideToBottom } from '@core/services/animation/animations';
 
 export class MenuItem {
   label: string;
@@ -16,7 +19,19 @@ export class MenuItem {
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
+  animations: [
+    trigger('routeTransition', [
+      transition("* => slideToLeft", slideToLeft),
+      transition("* => slideToRight", slideToRight),
+      transition("* => slideToTop", slideToTop),
+      transition("* => slideToBottom", slideToBottom),
+      transition("* => slideToLeftDuplicate", slideToLeft),
+      transition("* => slideToRightDuplicate", slideToRight),
+      transition("* => slideToTopDuplicate", slideToTop),
+      transition("* => slideToBottomDuplicate", slideToBottom),
+    ])
+  ],  
 })
 export class NavComponent implements OnInit {
   title = 'presentation';
@@ -38,7 +53,7 @@ export class NavComponent implements OnInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private animationService: AnimationService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -46,5 +61,10 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  getAnimation() {
+    console.log(this.animationService.getCurrentAnimation());
+    return this.animationService.getCurrentAnimation();
+  }  
 
 }
