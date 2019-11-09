@@ -63,7 +63,6 @@ export class NavComponent implements OnInit {
   }
 
   getAnimation() {
-    console.log(this.animationService.getCurrentAnimation());
     return this.animationService.getCurrentAnimation();
   }  
 

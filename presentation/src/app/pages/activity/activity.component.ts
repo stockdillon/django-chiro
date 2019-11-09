@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material';
 })
 export class ActivityComponent implements OnInit {
   transactions$: Observable<any>;
+  exchangeRates$: Observable<any>;
   prices$: Observable<any>;
   transactions: TransactionHistory;
   transactionHistory: Transaction[] = new Array<Transaction>();
@@ -38,11 +39,11 @@ export class ActivityComponent implements OnInit {
 
   animal: string;
   name: string;
-  searchedPrices: Array<CoinPrice> = [
-    <CoinPrice>{ coinName: 'BTC', price: '1$'}
-    ,<CoinPrice>{ coinName: 'LTC', price: '2$'}
-  ];
-
+  // searchedPrices: Array<CoinPrice> = [
+  //   <CoinPrice>{ coinName: 'BTC', price: '1$'}
+  //   ,<CoinPrice>{ coinName: 'LTC', price: '2$'}
+  // ];
+  searchedPrices: Array<CoinPrice> = new Array<CoinPrice>();
 
   openDialog(): void {
     const dialogRef = this.dialog.open(PriceSearchDialogComponent, {
@@ -50,9 +51,17 @@ export class ActivityComponent implements OnInit {
       data: {name: this.name, animal: this.animal}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: string) => {
       console.log(`The dialog was closed (${result})`);
       this.animal = result;
+      this.prices$ = this.activityService.getExchangeRates();
+      this.prices$.subscribe((rates: ExchangeRates) => {
+        console.log(`EXCHANGE RATES:`);
+        console.log(rates);
+        console.log(rates.data.rates.BTC);
+        // this.searchedPrices.push(<CoinPrice>{coinName: 'BTC', price: '$1000'})
+        this.searchedPrices.push(<CoinPrice>{coinName: result, price: rates.data.rates[result.toUpperCase()]})
+      });
     });
   }  
 
@@ -66,11 +75,11 @@ export class ActivityComponent implements OnInit {
       this.transactionHistory = result.data;
     });
 
-    this.prices$ = this.activityService.getExchangeRates();
-    this.prices$.subscribe((result: ExchangeRates) => {
-      console.log(`EXCHANGE RATES:`);
-      console.log(result);
-    });
+    // this.prices$ = this.activityService.getExchangeRates();
+    // this.prices$.subscribe((result: ExchangeRates) => {
+    //   console.log(`EXCHANGE RATES:`);
+    //   console.log(result);
+    // });
   }
 
   isBuy(transaction: Transaction): boolean {
