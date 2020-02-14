@@ -27,6 +27,7 @@ export class ActivityComponent implements OnInit {
   pageDescription: string = ``;
 
   searchingPrice: boolean = false;
+  exchangesRates: ExchangeRates;
 
 
   constructor(
@@ -53,6 +54,7 @@ export class ActivityComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`The dialog was closed (${result})`);
       this.animal = result;
+      this.searchedPrices.push({coinName: result, price: this.getPrice(result)} as CoinPrice)
     });
   }  
 
@@ -68,9 +70,16 @@ export class ActivityComponent implements OnInit {
 
     this.prices$ = this.activityService.getExchangeRates();
     this.prices$.subscribe((result: ExchangeRates) => {
+      debugger;
       console.log(`EXCHANGE RATES:`);
       console.log(result);
+      this.exchangesRates = result;
     });
+  }
+
+  getPrice(coinName: string): string {
+    let price: number = 1.0 / this.exchangesRates.data.rates[coinName.toUpperCase()];
+    return price.toString();
   }
 
   isBuy(transaction: Transaction): boolean {
