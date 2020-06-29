@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:dev": "ng build --configuration=dev",
-    "build:prod": "ng build --prod --output-path=../static/ang --output-hashing none --source-map=false",
+    "build:dev": "ng build --configuration=dev --sourceMap=true",
+    "build:prod": "ng build --prod --output-path=../static/ang --output-hashing none --sourceMap=false --aot=true --optimization=true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -14,7 +14,9 @@
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run presentation:server:production"
   },
-  "configurations": [],
+  "configurations": [
+    {}
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^8.0.2",
