@@ -5,7 +5,7 @@ import { TransactionHistory, Transaction } from 'src/app/models/coinbase.models'
 import { ActivityService } from 'src/app/services/activity.service';
 import { ExchangeRates } from 'src/app/services/activity.model';
 import { PriceSearchDialogComponent } from '@shared/price-search-dialog/price-search-dialog.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-activity',
