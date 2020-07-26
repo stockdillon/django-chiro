@@ -55,20 +55,9 @@ export class ActivityComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: string) => {
       console.log(`The dialog was closed (${result})`);
       this.animal = result;
-<<<<<<< HEAD
-      this.prices$ = this.activityService.getExchangeRates();
-      this.prices$.subscribe((rates: ExchangeRates) => {
-        console.log(`EXCHANGE RATES:`);
-        console.log(rates);
-        console.log(rates.data.rates.BTC);
-        // this.searchedPrices.push(<CoinPrice>{coinName: 'BTC', price: '$1000'})
-        this.searchedPrices.push(<CoinPrice>{coinName: result, price: rates.data.rates[result.toUpperCase()]})
-      });
-=======
       this.searchedPrices.push({coinName: result, price: this.getPrice(result)} as CoinPrice)
->>>>>>> aiden
     });
-  }  
+  }
 
   ngOnInit() {
     this.transactions$ = this.activityService.getTransactions();
@@ -80,21 +69,12 @@ export class ActivityComponent implements OnInit {
       this.transactionHistory = result.data;
     });
 
-<<<<<<< HEAD
-    // this.prices$ = this.activityService.getExchangeRates();
-    // this.prices$.subscribe((result: ExchangeRates) => {
-    //   console.log(`EXCHANGE RATES:`);
-    //   console.log(result);
-    // });
-=======
     this.prices$ = this.activityService.getExchangeRates();
     this.prices$.subscribe((result: ExchangeRates) => {
-      debugger;
       console.log(`EXCHANGE RATES:`);
       console.log(result);
       this.exchangesRates = result;
     });
->>>>>>> aiden
   }
 
   getPrice(coinName: string): string {
