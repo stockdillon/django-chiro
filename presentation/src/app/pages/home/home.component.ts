@@ -76,6 +76,7 @@ export class HomeComponent implements OnInit {
 
   typeWriterPaused: boolean = false;
   remainingPauseTime: number = 3;
+  typewriterTxt: string = "";
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -124,7 +125,7 @@ export class HomeComponent implements OnInit {
       return;
     }
 
-    document.getElementById("demo").innerHTML = this.txt.substr(0, this.i);
+    this.typewriterTxt = this.txt.substr(0, this.i);
 
     if (this.i >= this.txt.length) this.backspace = true;
     if (this.i == 0) {
@@ -149,6 +150,6 @@ export class HomeComponent implements OnInit {
     console.log("Going to activity...")
     this.animationService.slideToRIGHT();
     this.router.navigateByUrl("activity");
-  }  
+  }
 
 }
