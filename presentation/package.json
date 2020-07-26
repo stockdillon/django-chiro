@@ -30,6 +30,7 @@
     "@angular/platform-browser-dynamic": "~10.0.5",
     "@angular/platform-server": "~10.0.5",
     "@angular/router": "~10.0.5",
+    "@angular/service-worker": "~10.0.5",
     "@nguniversal/express-engine": "^7.1.1",
     "@nguniversal/module-map-ngfactory-loader": "0.0.0",
     "angular2-chartjs": "^0.5.1",

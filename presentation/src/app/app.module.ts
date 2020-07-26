@@ -20,6 +20,8 @@ import { PagesModule } from './pages/pages.module';
 import { NavModule } from './nav/nav.module';
 
 import { ComponentsModule } from './components/components.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { ComponentsModule } from './components/components.module';
     PagesModule,
     NavModule,
     ComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   exports: [
     HttpClientModule,
