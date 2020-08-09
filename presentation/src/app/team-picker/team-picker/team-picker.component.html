@@ -1,0 +1,54 @@
+<form>
+  <div>
+    <mat-form-field class="comment-full-width" [style.fontSize]="14">
+      <textarea matInput placeholder="Player Names..."
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                type="text"
+                [formControl]="playerNamesInput"
+                cdkAutosizeMinRows="2"
+                cdkAutosizeMaxRows="8"></textarea>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-button (click)="pickTeams()">Pick Teams</button>
+  </div>
+</form>
+
+<div>
+  <div>
+    Captains:
+  </div>
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let captain of this.captains; let i = index">
+      {{captain}} - ({{this.colors[i]}})
+    </mat-list-item>
+  </mat-list>
+
+  <div *ngFor="let captain of this.captains; let i = index">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{this.colors[i]}} Team ({{this.captains[i]}})</mat-card-title>
+        <!-- <mat-card-subtitle>{{this.captains[i]}}</mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <div *ngFor="let player of this.teams[i]">
+            {{player}}
+          </div>
+        </div>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+        <button mat-button>Ok</button>
+      </mat-card-actions> -->
+    </mat-card>
+    <mat-divider *ngIf="i !== 0"></mat-divider>
+
+    <!-- {{this.colors[i]}} Team
+    {{this.captains[i]}}
+    <ng-container *ngFor="let player of this.teams[i]">
+      {{player}}
+    </ng-container> -->
+
+  </div>
+</div>

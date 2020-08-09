@@ -10,12 +10,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { TypeWriterPipe } from './pipes/type-writer.pipe';
+import { LineBreaksPipe } from './pipes/line-breaks-pipe.pipe';
 
 @NgModule({
   declarations: [
     PriceSearchDialogComponent,
     PageHeaderComponent,
-    TypeWriterPipe
+    TypeWriterPipe,
+    LineBreaksPipe,
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,9 @@ import { TypeWriterPipe } from './pipes/type-writer.pipe';
   ],
   entryComponents: [
     PriceSearchDialogComponent
+  ],
+  providers: [
+    LineBreaksPipe,
   ]
 })
 export class SharedModule { }

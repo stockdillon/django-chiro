@@ -22,16 +22,16 @@ export class MenuItem {
   styleUrls: ['./nav.component.css'],
   animations: [
     trigger('routeTransition', [
-      transition("* => slideToLeft", slideToLeft),
-      transition("* => slideToRight", slideToRight),
-      transition("* => slideToTop", slideToTop),
-      transition("* => slideToBottom", slideToBottom),
-      transition("* => slideToLeftDuplicate", slideToLeft),
-      transition("* => slideToRightDuplicate", slideToRight),
-      transition("* => slideToTopDuplicate", slideToTop),
-      transition("* => slideToBottomDuplicate", slideToBottom),
+      transition('* => slideToLeft', slideToLeft),
+      transition('* => slideToRight', slideToRight),
+      transition('* => slideToTop', slideToTop),
+      transition('* => slideToBottom', slideToBottom),
+      transition('* => slideToLeftDuplicate', slideToLeft),
+      transition('* => slideToRightDuplicate', slideToRight),
+      transition('* => slideToTopDuplicate', slideToTop),
+      transition('* => slideToBottomDuplicate', slideToBottom),
     ])
-  ],  
+  ],
 })
 export class NavComponent implements OnInit {
   title = 'presentation';
@@ -46,7 +46,7 @@ export class NavComponent implements OnInit {
      new MenuItem('Activity', 'timeline', 'activity'),
      new MenuItem('Gallery', 'photo_library'),
      new MenuItem('About', 'info'),
-     new MenuItem('Projects', 'computer'),
+     new MenuItem('Projects', 'computer', 'projects'),
      new MenuItem('Blog', 'textsms', 'blog'),
      new MenuItem('Contact', 'perm_contact_calendar', 'contact'),
   ];
@@ -64,6 +64,6 @@ export class NavComponent implements OnInit {
 
   getAnimation() {
     return this.animationService.getCurrentAnimation();
-  }  
+  }
 
 }

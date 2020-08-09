@@ -1,8 +1,9 @@
+import { TeamPickerComponent } from './../team-picker/team-picker/team-picker.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { 
+import {
 // MatCommonModule,
 MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRippleModule } from '@angular/material/core';
@@ -32,7 +33,7 @@ import { PizzaPartyComponent } from './blog/blog-post/blog-post.component';
 import {ComponentsModule} from '../components/components.module';
 
 import { ActivityComponent } from './activity/activity.component';
-import { SharedModule } from '@shared/shared.module'
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [

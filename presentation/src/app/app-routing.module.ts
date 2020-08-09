@@ -1,3 +1,4 @@
+import { TeamPickerComponent } from './team-picker/team-picker/team-picker.component';
 import { ActivityComponent } from './pages/activity/activity.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'activity',
     component: ActivityComponent,
+  },
+  {
+    path: 'projects',
+    loadChildren: () => import('./team-picker/team-picker.module').then(m => m.TeamPickerModule)
   },
   {
     path: '**',
