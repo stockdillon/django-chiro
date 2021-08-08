@@ -17,9 +17,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { share } from 'rxjs/operators';
 
+const REPO_URL = 'https://github.com/stockdillon/django-chiro';
+
 export class CommitDisplay {
   message: string;
   date: Date;
+  link: string;
+  sha: string;
 }
 
 state('open', style({
@@ -78,8 +82,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   // commitWrappers: CommitWrapper[];
   commitWrappers: CommitDisplay[];
 
-  displayedColumns: string[] = ['date', 'comment'];
-  dataSource: MatTableDataSource<any>;
+  displayedColumns: string[] = ['date', 'comment', 'link'];
+  dataSource: MatTableDataSource<CommitDisplay>;
 
   typeWriterPaused: boolean = false;
   remainingPauseTime: number = 3;
@@ -94,7 +98,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     const subscription = this.commits$.subscribe((result: CommitWrapper[]) => {
       this.commitWrappers = result.slice(0, result.length).map(_ => ({
         message: _.commit.message,
-        date: new Date(_.commit.author.date)
+        date: new Date(_.commit.author.date),
+        link: `${REPO_URL}/commit/${_.sha}`,
+        sha: _.sha.substr(32),
       } as CommitDisplay));
       this.dataSource = new MatTableDataSource(this.commitWrappers);
       this.dataSource.paginator = this.paginator;

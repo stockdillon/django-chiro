@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -21,7 +22,7 @@ export class ActivityService implements OnInit {
   // TODO: Move to Coinbase (core) service
   // TODO: Inject Coinbase service into this (activity) service
   getTransactions(): Observable<any> {
-    return this.http.get('api/coinbase/transactions').pipe(
+    return this.http.get(`${environment.baseUrl}/api/coinbase/transactions`).pipe(
       share()
     );
   }

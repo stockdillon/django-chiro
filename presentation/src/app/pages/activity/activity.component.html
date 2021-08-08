@@ -45,10 +45,19 @@
 
 <app-chart *ngIf="data" [chartData]='data'></app-chart>
 
-
-<button mat-raised-button (click)="openDialog()">Search for a coin's price</button>
-<ol>
-  <li *ngFor="let price of searchedPrices">
-    {{price.coinName}}: <i>{{price.price}}</i>
-  </li>
-</ol>
+<div>
+  <div class="row">
+    <h2>
+      Crypto Price Lookup
+    </h2>
+    <button mat-icon-button matTooltip='Lookup a coin&#39;s price by ticker (e.g. "btc" or "ltc")'>
+      <mat-icon>info</mat-icon>
+    </button>
+  </div>
+  <button mat-raised-button (click)="openDialog()">Search</button>
+  <ol>
+    <li *ngFor="let price of searchedPrices">
+      {{price.coinName}}: <i>{{price.price | currency}}</i>
+    </li>
+  </ol>
+</div>
