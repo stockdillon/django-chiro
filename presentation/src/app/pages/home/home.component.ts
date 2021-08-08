@@ -1,9 +1,9 @@
 import { AnimationService } from './../../core/services/animation/animation.service';
 import { CommitWrapper } from './models/github.model';
 import { HomeService } from '@core/services/home/home.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { QuoteService } from 'src/app/services/quote.service';
-import { Observable, timer } from 'rxjs';
+import { Observable, timer, Subscription } from 'rxjs';
 import {
   trigger,
   state,
@@ -15,6 +15,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { share } from 'rxjs/operators';
 
 export class CommitDisplay {
   message: string;
@@ -60,12 +61,16 @@ state('closed', style({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private homeService: HomeService,
     private animationService: AnimationService,
     private router: Router
   ) { }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   isOpenGithub = false;
 
@@ -79,6 +84,7 @@ export class HomeComponent implements OnInit {
   typeWriterPaused: boolean = false;
   remainingPauseTime: number = 3;
   typewriterTxt: string = "";
+  subscription: Subscription = new Subscription();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -97,9 +103,13 @@ export class HomeComponent implements OnInit {
     });
     // subscription.unsubscribe();
 
-    timer(0, 50).subscribe(result => {
-      this.typeWriter();
-    });
+    this.subscription.add(
+      timer(0, 50).pipe(
+        share(),
+      ).subscribe(result => {
+        this.typeWriter();
+      })
+    );
   }
 
   // mapToDisplay()
