@@ -1,10 +1,10 @@
 import { ActivityComponent } from './pages/activity/activity.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
 
 const routes: Routes = [
   {
@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'activity',
     component: ActivityComponent,
+  },
+  {
+    path: 'projects',
+    loadChildren: () => import('./pages/projects/projects.module').then(mod => mod.ProjectsModule),
   },
   {
     path: '**',

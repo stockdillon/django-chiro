@@ -1,3 +1,4 @@
+import { ProjectsModule } from './projects/projects.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -44,6 +45,7 @@ import { SharedModule } from '@shared/shared.module'
     ActivityComponent,
   ],
   imports: [
+    ProjectsModule,
     CommonModule,
     FormsModule,
     // MatCommonModule,
@@ -74,6 +76,7 @@ import { SharedModule } from '@shared/shared.module'
     HomeComponent,
     BlogComponent,
     ContactComponent,
+    ProjectsModule,
   ],
   providers: [
     // BlogPostsService,

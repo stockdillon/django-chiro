@@ -46,7 +46,7 @@ export class NavComponent implements OnInit {
      new MenuItem('Activity', 'timeline', 'activity'),
      new MenuItem('Gallery', 'photo_library'),
      new MenuItem('About', 'info'),
-     new MenuItem('Projects', 'computer'),
+     new MenuItem('Projects', 'computer', 'projects'),
      new MenuItem('Blog', 'textsms', 'blog'),
      new MenuItem('Contact', 'perm_contact_calendar', 'contact'),
   ];
