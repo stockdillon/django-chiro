@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { TypeWriterPipe } from './pipes/type-writer.pipe';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,20 @@ import { TypeWriterPipe } from './pipes/type-writer.pipe';
     MatInputModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule,
   ],
   exports: [
     PriceSearchDialogComponent,
     PageHeaderComponent,
-    TypeWriterPipe
+    TypeWriterPipe,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
   ],
   entryComponents: [
     PriceSearchDialogComponent

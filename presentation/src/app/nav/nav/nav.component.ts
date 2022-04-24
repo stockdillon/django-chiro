@@ -43,12 +43,12 @@ export class NavComponent implements OnInit {
   // menuItems: Array<MenuItem> = new Array<MenuItem>( new MenuItem('Home', 'home'));;
   menuItems: Array<MenuItem> = [
      new MenuItem('Home', 'home', 'home'),
-     new MenuItem('Activity', 'timeline', 'activity'),
-     new MenuItem('Gallery', 'photo_library'),
-     new MenuItem('About', 'info'),
+    //  new MenuItem('Activity', 'timeline', 'activity'),
+    //  new MenuItem('Gallery', 'photo_library'),
+    //  new MenuItem('About', 'info'),
      new MenuItem('Projects', 'computer', 'projects'),
-     new MenuItem('Blog', 'textsms', 'blog'),
-     new MenuItem('Contact', 'perm_contact_calendar', 'contact'),
+    //  new MenuItem('Blog', 'textsms', 'blog'),
+    //  new MenuItem('Contact', 'perm_contact_calendar', 'contact'),
   ];
 
   private _mobileQueryListener: () => void;
