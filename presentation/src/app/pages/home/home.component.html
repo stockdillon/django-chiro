@@ -32,7 +32,7 @@
 <!-- <div *ngIf="commits$"> -->
 
 <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <input matInput (keyup)="applyFilter($event.target['value'])" placeholder="Filter">
 </mat-form-field>
 
 <table mat-table [dataSource]="this.dataSource" class="mat-elevation-z8" matSort matSortActive="date"

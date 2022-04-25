@@ -2,7 +2,11 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": []
+    "types": [],
+    "experimentalDecorators": true
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true,
   },
   "files": [
     "main.ts",
