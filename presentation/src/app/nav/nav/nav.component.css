@@ -46,3 +46,7 @@ mat-toolbar {
 .fixed-toolbar {
   z-index: 2;
 }
+
+i {
+  color: white;
+}

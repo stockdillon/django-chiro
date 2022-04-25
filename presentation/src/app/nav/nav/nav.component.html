@@ -7,23 +7,27 @@
     <h1 class="example-app-name d-none d-lg-block">Dillon Stock</h1>
     <div class="container-fluid">
       <div class="col col-lg-4 offset-lg-8">
-        <a href="https://www.linkedin.com/in/dillon-stock-933b44160/" target="_blank" class="btn btn-lg linked-in"><i
+        <a href="https://www.linkedin.com/in/dillon-stock-933b44160/" target="_blank" matTooltip="LinkedIn" class="btn btn-lg linked-in"><i
             class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="https://github.com/stockdillon/" class="btn btn-lg outline github" target="_blank"><i
+        <a href="https://github.com/stockdillon/" matTooltip="GitHub" class="btn btn-lg outline github" target="_blank"><i
             class="fab fa-github" aria-hidden="true"></i> </a>
-        <a href="https://www.instagram.com/dillonstock/" class="btn btn-lg instagram" target="_blank"><i
+        <a href="https://www.instagram.com/dillonstock/" matTooltip="Instagram" class="btn btn-lg instagram" target="_blank"><i
             class="fab fa-instagram" aria-hidden="true"></i> </a>
-        <a href="https://twitter.com/dillonstock" class="btn btn-lg twitter" target="_blank"><i class="fab fa-twitter"
+        <!-- <a href="https://twitter.com/dillonstock" class="btn btn-lg twitter" target="_blank"><i class="fab fa-twitter"
             aria-hidden="true"></i> </a>
         <a href="https://www.facebook.com/dillon.stock.1" class="btn btn-lg facebook" target="_blank"><i
-            class="fab fa-facebook" aria-hidden="true"></i> </a>
+            class="fab fa-facebook" aria-hidden="true"></i> </a> -->
+        <a href="https://www.instagram.com/dillonstock/" matTooltip="Strava" class="btn btn-lg strava" target="_blank"><i
+            class="fab fa-strava" aria-hidden="true"></i> </a>
+        <!-- <a href="https://www.strava.com/athletes/95422226" class="btn btn-lg" matTooltip="Strava" target="_blank"><i
+            class="fa fa-bicycle" aria-hidden="true"></i> </a> -->
       </div>
       <div class="row">
       </div>
     </div>
   </mat-toolbar>
 
-  <app-page-header></app-page-header>
+  <!-- <app-page-header></app-page-header> -->
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"

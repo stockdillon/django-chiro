@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { TypeWriterPipe } from './pipes/type-writer.pipe';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatButtonModule,
     MatListModule,
+    MatTooltipModule,
   ],
   exports: [
     PriceSearchDialogComponent,
