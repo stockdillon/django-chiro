@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { QuoteSnackBarComponent } from '../../material-components/quote-snack-bar.component';
 import { Observable, timer } from 'rxjs';
 import { trigger, transition, useAnimation, style, animate, state } from '@angular/animations';
-import { slideInLeft, fadeIn, fadeInDown } from 'ng-animate';
+import { slideInLeft, fadeIn, fadeInDown, slideInRight } from 'ng-animate';
 
 // import { HostBinding } from '@angular/core';
 // import {
@@ -84,6 +84,7 @@ export class QuoteTickerComponent implements OnInit {
   timer$: Observable<any>;
   hidden: boolean;
   showQuoteActions = true;
+  slideInRight = slideInRight;
 
   paused: boolean = false;
 
