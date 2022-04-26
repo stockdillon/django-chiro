@@ -13,8 +13,9 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run presentation:server:production",
+    "clear-cache": "aws cloudfront create-invalidation --distribution-id E394B9B4ZT2IJM --paths \"/*\"",
     "deploy:test": "npm run build:prod && aws s3 cp ../static/ang/ s3://test.strava.dillonstock.com/ --recursive",
-    "deploy:prod": "npm run build:prod && aws s3 cp ../static/ang/ s3://dillonstock.com/ --recursive"    
+    "deploy:prod": "npm run build:prod && aws s3 cp ../static/ang/ s3://dillonstock.com/ --recursive && npm run clear-cache"    
   },
   "configurations": [
     {}
